@@ -40,6 +40,7 @@ function Search() {
                   <ListItem key={book.id}>
                     <strong>
                       {book.volumeInfo.title} by {book.volumeInfo.authors}
+                      {book.volumeInfo.description} {book.volumeInfo.imageLinks.smallThumbnail}
                     </strong>
                     <button onClick={() => console.log("button")}>
                       button
