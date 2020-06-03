@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import API from "../utils/API";
 import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+import "./style.css";
 
 function Search() {
   const [book, setBook] = useState("");
@@ -53,24 +53,25 @@ function Search() {
                 onChange={(event) => setBook(event.target.value)}
               />
               <button onClick={handleSearch}>Search</button>
-              {/* <h1>{book}</h1> */}
             </Jumbotron>
             {results.length ? (
-              <List>
+              <nav>
                 {results.map((book) => (
-                  <ListItem key={book.id}>
-                    <strong>
-                      {book.volumeInfo.title} by {book.volumeInfo.authors}
-                      {book.volumeInfo.description}
-                    </strong>
-                    <img src={book.volumeInfo.imageLinks.smallThumbnail} />
-                    {/* <button data-book={JSON.stringify(book)} onClick={saveBook}>
-                      Save
-                    </button> */}
+                  <div className="eachBook">
+                  <ul key={book.id}>
+                    <img src={book.volumeInfo.imageLinks.smallThumbnail} alt="bookCover"/>
+                    <br></br>
+                    
+                    <h1>{book.volumeInfo.title}</h1> 
+                    <p>by</p>
+                    <h2>{book.volumeInfo.authors}</h2>
+                    <h3>{book.volumeInfo.description}</h3>
+                    
                     <button onClick={() => saveBook(book)}>Save</button>
-                  </ListItem>
+                  </ul>
+                  </div>
                 ))}
-              </List>
+              </nav>
             ) : (
               <h3>No Results to Display</h3>
             )}

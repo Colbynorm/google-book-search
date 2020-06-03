@@ -1,0 +1,11 @@
+.navbar {
+    background-color: darkgray;
+    text-align: center;
+    padding: 50px;
+}
+
+.link1, .link2 {
+    font-size: x-large;
+    padding: 20px;
+}
+

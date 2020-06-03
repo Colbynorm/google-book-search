@@ -1,23 +1,20 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./style.css"
 
 function Nav() {
   return (
     <Navbar>
-      <Navbar.Brand href="#home">React Google Reading App</Navbar.Brand>
-      <Navbar.Toggle />
-      <Navbar.Collapse className="justify-content-end">
-        <Navbar.Text>
-          <a href="#login">Colby Norman</a>
-        </Navbar.Text>
-      </Navbar.Collapse>
+      <div className="navBar">
+        <h1>Google API Book Search</h1>
+        <br></br>
+        <ul>
+          <Link className="link1" to="/">Search</Link>
+          <Link className="link2" to="/saved">Saved</Link>
+        </ul>
+      </div>
     </Navbar>
-    // <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-    //   <a className="navbar-brand" href="/">
-    //     React Reading List
-    //   </a>
-    // </nav>
   );
 }
 

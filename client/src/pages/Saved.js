@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
-// import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+import "./style.css";
 
 function Saved() {
   const [results, setResults] = useState([]);
@@ -34,18 +33,24 @@ function Saved() {
         <Row>
           <Col size="md-12">
             {results.length ? (
-              <List>
+              <nav>
                 {results.map((book) => (
-                  <ListItem key={book._id}>
-                    <strong>
-                      {book.title} by {book.author}
-                      {book.synopsis}
-                    </strong>
-                    <img src={book.image} alt="book cover" />
-                    <button onClick={() => deleteBook(book)}>Delete</button>
-                  </ListItem>
+                  <div className="eachBook">
+                    <ul key={book._id}>
+                      <img src={book.image} alt="bookCover" />
+
+                      <br></br>
+
+                      <h1>{book.title}</h1>
+                      <p>by</p>
+                      <h2>{book.authors}</h2>
+                      <h3>{book.synopsis}</h3>
+
+                      <button onClick={() => deleteBook(book)}>Delete</button>
+                    </ul>
+                  </div>
                 ))}
-              </List>
+              </nav>
             ) : (
               <h3>No Results to Display</h3>
             )}
