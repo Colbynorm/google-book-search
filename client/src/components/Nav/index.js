@@ -1,5 +1,6 @@
 import React from "react";
-import Navbar from 'react-bootstrap/Navbar';
+import Navbar from "react-bootstrap/Navbar";
+import { Link, Redirect } from "react-router-dom";
 
 function Nav() {
   return (

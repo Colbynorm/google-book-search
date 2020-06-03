@@ -20,6 +20,27 @@ function Search() {
       });
   }
 
+  function saveBook(book) {
+    console.log(book);
+
+    let formattedBook = {
+      title: book.volumeInfo.title,
+      author: book.volumeInfo.authors,
+      synopsis: book.volumeInfo.description,
+      image: book.volumeInfo.imageLinks.smallThumbnail,
+    };
+
+    console.log(formattedBook);
+
+    API.saveBook(formattedBook)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <div>
       <Container fluid>
@@ -40,11 +61,13 @@ function Search() {
                   <ListItem key={book.id}>
                     <strong>
                       {book.volumeInfo.title} by {book.volumeInfo.authors}
-                      {book.volumeInfo.description} {book.volumeInfo.imageLinks.smallThumbnail}
+                      {book.volumeInfo.description}
                     </strong>
-                    <button onClick={() => console.log("button")}>
-                      button
-                    </button>
+                    <img src={book.volumeInfo.imageLinks.smallThumbnail} />
+                    {/* <button data-book={JSON.stringify(book)} onClick={saveBook}>
+                      Save
+                    </button> */}
+                    <button onClick={() => saveBook(book)}>Save</button>
                   </ListItem>
                 ))}
               </List>
